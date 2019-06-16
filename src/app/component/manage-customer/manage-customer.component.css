@@ -1,0 +1,72 @@
+/*Request Form*/
+
+.CustomerForm h2 {
+  background-color: #28aae1;
+  color: #fff;
+  text-align: center;
+  margin: 0px;
+  text-transform: capitalize;
+  padding: 50px 0px;
+  font-weight: 100;
+}
+.CustomerForm .Forms {
+  padding: 20px 15px 30px;
+}
+.CustomerForm .Forms form {
+  box-shadow: 0px 1px 3px #ddd;
+  padding: 0px 40px 50px;
+}
+.CustomerForm .Forms form .form-control {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #efefef;
+  background-color: transparent;
+  box-shadow: none;
+  height: 40px;
+}
+.CustomerForm .Forms form textarea.form-control {
+  height: auto;
+  resize: none;
+}
+.CustomerForm .Forms form button {
+  border: none;
+  background-color: #28aae1;
+  color: #fff;
+  text-align: center;
+  width: 100px;
+  padding: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: none;
+  outline: 0;
+}
+.CustomerForm .Forms form button:hover {
+  background-color: #232323;
+  color: #fff;
+}
+.CustomerForm .Forms form .form-control::-moz-placeholder {
+  color: #c7c7c7;
+  opacity: 1
+}
+.CustomerForm .Forms form .form-control:-ms-input-placeholder {
+  color: #c7c7c7
+}
+.CustomerForm .Forms form .form-control::-webkit-input-placeholder {
+  color: #c7c7c7
+}
+#tblCustomers tbody{
+    background-color: gray;
+}
+#tblCustomers tr{
+    cursor: pointer;
+}
+#tblCustomers tr th:first-child, #tblCustomers tr td:first-child{
+    text-align: center;
+}
+#tblCustomers tr td:last-child{
+    text-align: center;
+}
+#tblcustomers tr td:last-child:hover{
+    color: red;
+}

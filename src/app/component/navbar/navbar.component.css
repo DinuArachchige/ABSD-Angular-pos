@@ -1,0 +1,60 @@
+body {
+    width:100%;
+    height:100%;
+    font-family:Arial;
+    font-size:14px;
+}
+header, footer {
+    min-height:50px;
+    position:relative;
+}
+[role="contents"] {
+    position:relative;
+}
+.mega-nav {
+    background:#2a8fcf;
+    border-radius:0;
+    margin-bottom:0;
+   
+}
+.mega-nav.navbar-default .navbar-nav > li > a {
+    color:#fff;
+    transition: all 200ms ease-out;
+    -webkit-transition: all 200ms ease-out;
+    -ms-transition: all 200ms ease-out;
+    position: center;
+}
+.mega-nav.navbar-default .navbar-nav > li > a:hover {
+    background:#0075b3;
+} 
+.mega-nav.navbar-default .navbar-nav > li.dropdown > a:hover,
+.mega-nav.navbar-default .navbar-nav > li.dropdown > a:focus,
+.mega-nav.navbar-default .navbar-nav > li.dropdown > a:active{
+    background:#0075b3;
+    color:#fff;
+} 
+#MainMenu {
+    padding-left:0;
+}
+#MainMenu .menu-list li {
+    transition: all 200ms ease-out;
+    -webkit-transition: all 200ms ease-out;
+    -ms-transition: all 200ms ease-out;
+}
+#MainMenu .menu-list li + li {
+    border-left:1px solid rgba(255, 255, 255, 0.5);
+}
+
+.mega-nav.navbar-default .navbar-nav > li.menu-list .list-category a {
+    color:#333;
+}
+.darkness {
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+}
