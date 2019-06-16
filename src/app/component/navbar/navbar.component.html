@@ -1,0 +1,82 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+<body>
+    <header>
+        <div class="center-block text-center">
+            <h3>
+                POINT OF SALE<BR>
+            </h3>
+        </div>
+    </header>
+    <nav class="navbar navbar-default mega-nav" style="background-color:#2a8fcf;">
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#MainMenu" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="MainMenu" style="color:white">
+            <ul class="nav navbar-nav menu-list">
+                <li class="dropdown list-category">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-navicon"></i> Home <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li><a href="#">Cushion</a></li>
+                        <li><a href="#">Bath</a></li>
+                        <li><a href="#">Air Conditioner</a></li>
+                        <li><a href="#">Radiator</a></li>
+                        <li><a href="#">Washing Machine</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">View all</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Customer</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Order</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+            <form id="mega-search" class="navbar-form navbar-right">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        </div>
+    </nav>
+    <main role="contents">
+        <div class="container">
+            <section class="main-banner">
+                <img src="https://shop365.com.sg/media/wysiwyg/home/Home-Page-Banner---Kenwood-_-Delonghi.jpg" alt="" class="img-responsive" />
+            </section>
+        </div>
+        <div class="darkness"></div>
+    </main>
+    <footer>
+        <div class="darkness"></div>
+    </footer>
+</body>
+<script>
+  $(document).ready(function () {
+    //Hover Menu in Header
+    $('ul.nav li.dropdown').hover(function () {
+        $(this).find('.mega-dropdown-menu').stop(true, true).delay(200).fadeIn(200);
+        $('.darkness').stop(true, true).fadeIn();
+    }, function () {
+        $(this).find('.mega-dropdown-menu').stop(true, true).delay(200).fadeOut(200);
+         $('.darkness').stop(true, true).delay(200).fadeOut();
+    });
+});
+</script>
