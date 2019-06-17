@@ -6,14 +6,14 @@
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <body>
     <header>
-        <div class="center-block text-center">
-            <h3>
+        <div class="center-block text-center" >
+            <h3 class="h" >
                 POINT OF SALE<BR>
             </h3>
         </div>
     </header>
-    <nav class="navbar navbar-default mega-nav" style="background-color:#2a8fcf;">
-        <div class="container">
+    <nav class="navbar navbar-default mega-nav" >
+        <!--<div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#MainMenu" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -21,27 +21,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-        </div>
-        <div class="collapse navbar-collapse" id="MainMenu" style="color:white">
-            <ul class="nav navbar-nav menu-list">
-                <li class="dropdown list-category">
+        </div>-->
+        <div class="collapse navbar-collapse" id="MainMenu">
+            <ul class="nav navbar-nav ">
+                <!--<li class="dropdown list-category">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-navicon"></i> Home <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </a>
                     <ul class="dropdown-menu mega-dropdown-menu">
-                        <li><a href="#">Cushion</a></li>
-                        <li><a href="#">Bath</a></li>
-                        <li><a href="#">Air Conditioner</a></li>
-                        <li><a href="#">Radiator</a></li>
-                        <li><a href="#">Washing Machine</a></li>
+                        <li><a routerLink="/manage-customer" routerLinkActive="active" href="#">Customer</a></li>
+                        <li><a href="#">Item</a></li>
+                        <li><a href="#">Create Order</a></li>
+                        <li><a href="#">View Orders</a></li>
+                        <li><a href="#">Logout</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">View all</a></li>
                     </ul>
-                </li>
-                <li><a href="#">Customer</a></li>
-                <li><a href="#">Item</a></li>
-                <li><a href="#">Order</a></li>
-                <li><a href="#">Logout</a></li>
+                </li>-->
+                
+                <li><a routerLink="/dashboad" routerLinkActive="active"href="#"><i class="glyphicon glyphicon-home"></i>Home</a></li>
+                <li><a routerLink="/manage-customer" routerLinkActive="active" href="#"><i class="glyphicon glyphicon-user"></i>Customer</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-th"></i>Item</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-shopping-cart"></i>Order</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-off"></i>Logout</a></li>
             </ul>
             <form id="mega-search" class="navbar-form navbar-right">
                 <div class="input-group">
@@ -54,9 +56,8 @@
                 </div>
             </form>
         </div>
-        </div>
     </nav>
-    <main role="contents">
+    <!--<main role="contents">
         <div class="container">
             <section class="main-banner">
                 <img src="https://shop365.com.sg/media/wysiwyg/home/Home-Page-Banner---Kenwood-_-Delonghi.jpg" alt="" class="img-responsive" />
@@ -66,8 +67,8 @@
     </main>
     <footer>
         <div class="darkness"></div>
-    </footer>
-</body>
+    </footer>-->
+
 <script>
   $(document).ready(function () {
     //Hover Menu in Header
@@ -80,3 +81,4 @@
     });
 });
 </script>
+</body>

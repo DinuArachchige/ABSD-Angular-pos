@@ -1,0 +1,63 @@
+<section>
+    <div class="project-request">
+      <div class="container">
+        <div class="col-lg-12 col-md-5 col-sm-5 col-xs-12">
+          <div class="CustomerForm">
+            <h2 class="cust-form" style="font-size:20px;">Customer Form</h2>
+            <div class="Forms">
+              <form>
+                <div class="form-group">
+                  <input name="txtId" [(ngModel)]="selectedCustomer.id" id="txtId" class="form-control" placeholder="Customer Id">
+                </div>
+                <div class="form-group">
+                  <input name="txtName" [(ngModel)]="selectedCustomer.name" id="txtName" class="form-control" placeholder="Customer Name" >
+                </div>
+                <div class="form-group">
+                  <input name="txtAddress" id="txtAddress" [(ngModel)]="selectedCustomer.address" class="form-control" placeholder="Customer Address" >
+                </div>
+                <button type="button" (click)="saveCustomer()">Save</button>
+                &nbsp;
+                <button (click)="clear()" type="button">Clear</button>
+                &nbsp;
+                <button (click)="update(selectedCustomer.id)" type="button">Update</button>
+                &nbsp;
+                <button (click)="serachCustomer()" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row">
+      <div class="col-md-12">
+        <table id="tblCustomers" class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Customer Address</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let customer of customers" (click)="tableClick(customer)" >
+            <td>{{customer.id}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.address}}</td>
+            <td>
+              <i (click)="deleteCustomer(customer.id)" class="fa fa-trash fa-2x"></i>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <!--<tr>
+            <td colspan="4">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </td>
+          </tr>-->
+          </tfoot>
+        </table>
+      </div>
+    </div>
