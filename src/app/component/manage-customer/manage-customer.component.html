@@ -3,17 +3,17 @@
       <div class="container">
         <div class="col-lg-12 col-md-5 col-sm-5 col-xs-12">
           <div class="CustomerForm">
-            <h2>Customer Form</h2>
+            <h2 class="cust-form" style="font-size:20px;">Customer Form</h2>
             <div class="Forms">
               <form>
                 <div class="form-group">
-                  <input name="txtId" [(ngModel)]="selectedCustomer.id" id="txtId" class="form-control" placeholder="Customer Id" type="text">
+                  <input name="txtId" [(ngModel)]="selectedCustomer.id" id="txtId" class="form-control" placeholder="Customer Id">
                 </div>
                 <div class="form-group">
-                  <input name="txtName" [(ngModel)]="selectedCustomer.name" id="txtName" class="form-control" placeholder="Customer Name" type="text">
+                  <input name="txtName" [(ngModel)]="selectedCustomer.name" id="txtName" class="form-control" placeholder="Customer Name" >
                 </div>
                 <div class="form-group">
-                  <input name="txtAddress" id="txtAddress" [(ngModel)]="selectedCustomer.address" class="form-control" placeholder="Customer Address" type="text">
+                  <input name="txtAddress" id="txtAddress" [(ngModel)]="selectedCustomer.address" class="form-control" placeholder="Customer Address" >
                 </div>
                 <button type="button" (click)="saveCustomer()">Save</button>
                 &nbsp;
