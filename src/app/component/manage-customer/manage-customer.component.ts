@@ -24,9 +24,9 @@ export class ManageCustomerComponent implements OnInit {
     this.loadAllCustomers();
   }
 
-  saveCustomer(): void {
+  saveCustomer() {
     this.customerService.saveCustomer(this.selectedCustomer).subscribe(
-      (result: any) => {
+      (result) => {
       if (result) {
         alert('Customer has been saved successfully');
         this.loadAllCustomers();
@@ -51,13 +51,13 @@ export class ManageCustomerComponent implements OnInit {
 
 
   private loadAllCustomers() {
-    this.customerService.getAllCustomers().subscribe(result => {
+    this.customerService.getAllCustomers().subscribe((result) => {
       this.customers = result;
     });
   }
 
 
-  update(id): void {
+  update(id) {
     this.customerService.saveCustomer(this.selectedCustomer).subscribe((result) => {
       if (result) {
         alert('Customer has been Updated successfully');
@@ -70,16 +70,21 @@ export class ManageCustomerComponent implements OnInit {
     });
   }
 
-  deleteCustomer(id): void {
+  deleteCustomer(id) {
     if (confirm('Are you sure,you want to delete this customer?')) {
-      this.customerService.deleteCustomer(id).subscribe(
-        (result) => {
-
+      this.customerService.deleteCustomer(id).subscribe( (result) => {
+          if (result) {
+            alert('Customer has been deleted successfully!');
+            this.loadAllCustomers();
+          } else {
+            alert('Failed to delete the customer');
+          }
+          this.loadAllCustomers();
       });
     }
   }
 
-  searchCustomer(): void {
+  searchCustomer() {
     this.customerService.searchCustomer(this.selectedCustomer.id).subscribe((result) => {
       this.selectedCustomer = result;
       if (!result) {
@@ -88,7 +93,7 @@ export class ManageCustomerComponent implements OnInit {
       });
   }
 
-  tableClick(customer: Customer): void {
+  tableClick(customer: Customer) {
     this.customerService.searchCustomer(customer.id).subscribe((result) => {
       this.selectedCustomer = result;
       });
@@ -106,7 +111,7 @@ export class ManageCustomerComponent implements OnInit {
       }
   }
 
-  selectCustomer(customer: Customer): void {
+  selectCustomer(customer: Customer) {
     this.clear();
     this.selectedCustomer = customer;
 
