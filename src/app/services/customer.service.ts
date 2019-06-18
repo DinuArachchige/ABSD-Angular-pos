@@ -12,16 +12,20 @@ export class CustomerService {
 
 
   saveCustomer(customer: Customer): Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/customer');
+    return this.http.post<boolean>('http://localhost:8080/customer', customer);
 
   }
 
-  getAllCustomers() {
+  getAllCustomers(): Observable<Array<Customer>> {
+    return this.http.get<Array<Customer>>('http://localhost:8080/customer');
   }
 
-  searchCustomer(id: string) {
+  searchCustomer(id: string): Observable<Customer> {
+    return this.http.get('http://localhost:8080/customer' + '/' + id);
   }
 
-  deleteCustomer(id: any) {
+
+  deleteCustomer(id: any): Observable<boolean> {
+    return this.http.delete<boolean>('http://localhost:8080/customer' + '/' + id);
   }
 }
