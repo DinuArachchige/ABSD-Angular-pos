@@ -11,7 +11,7 @@ import {CustomerService} from '../../services/customer.service';
 export class ManageCustomerComponent implements OnInit {
 
   customers: Array<Customer> = [];
-  selectedCustomer: Customer = new Customer();
+  selectedCustomer: Customer = new Customer('', '', '');
   tempCustomer: Customer = null;
   manuallySelected = true;
   inputDisabled = true;
@@ -45,12 +45,12 @@ export class ManageCustomerComponent implements OnInit {
       this.customers[index] = this.tempCustomer;
       this.tempCustomer = null;
     }
-    this.selectedCustomer = new Customer();
+    this.selectedCustomer = new Customer('', '', '');
     this.manuallySelected = false;
   }
 
 
-  private loadAllCustomers() {
+   loadAllCustomers() {
     this.customerService.getAllCustomers().subscribe((result) => {
       this.customers = result;
     });
@@ -71,16 +71,18 @@ export class ManageCustomerComponent implements OnInit {
   }
 
   deleteCustomer(id) {
-    if (confirm('Are you sure,you want to delete this customer?')) {
-      this.customerService.deleteCustomer(id).subscribe( (result) => {
+    if (confirm('Are you sure you want to delete this customer?')) {
+      this.customerService.deleteCustomer(id).subscribe(
+        (result) => {
           if (result) {
-            alert('Customer has been deleted successfully!');
+            alert('Customer has been deleted successfully');
             this.loadAllCustomers();
           } else {
             alert('Failed to delete the customer');
           }
           this.loadAllCustomers();
-      });
+        }
+      );
     }
   }
 

@@ -1,0 +1,70 @@
+.ItemForm h2 {
+  background-color: #28aae1;
+  color: #fff;
+  text-align: center;
+  margin: 0px;
+  text-transform: capitalize;
+  padding: 50px 0px;
+  font-weight: 100;
+}
+.ItemForm .Forms {
+  padding: 20px 15px 30px;
+}
+.ItemForm .Forms form {
+  box-shadow: 0px 1px 3px #ddd;
+  padding: 0px 40px 50px;
+}
+.ItemForm .Forms form .form-control {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #efefef;
+  background-color: transparent;
+  box-shadow: none;
+  height: 40px;
+}
+.ItemForm .Forms form textarea.form-control {
+  height: auto;
+  resize: none;
+}
+.ItemForm .Forms form button {
+  border: none;
+  background-color: #28aae1;
+  color: #fff;
+  text-align: center;
+  width: 100px;
+  padding: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: none;
+  outline: 0;
+}
+.ItemForm .Forms form button:hover {
+  background-color: #232323;
+  color: #fff;
+}
+.ItemForm .Forms form .form-control::-moz-placeholder {
+  color: #c7c7c7;
+  opacity: 1
+}
+.ItemForm .Forms form .form-control:-ms-input-placeholder {
+  color: #c7c7c7
+}
+.ItemForm .Forms form .form-control::-webkit-input-placeholder {
+  color: #c7c7c7
+}
+#tblItems tbody{
+  background-color: gray;
+}
+#tblItems tr{
+  cursor: pointer;
+}
+#tblItems tr th:first-child, #tblCustomers tr td:first-child{
+  text-align: center;
+}
+#tblItems tr td:last-child{
+  text-align: center;
+}
+#tblItems tr td:last-child:hover{
+  color: red;
+}
