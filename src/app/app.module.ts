@@ -11,13 +11,15 @@ import { DashboadComponent } from './component/dashboad/dashboad.component';
 import { ManageCustomerComponent } from './component/manage-customer/manage-customer.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CustomerService} from './services/customer.service';
+import { ManageItemComponent } from './component/manage-item/manage-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DashboadComponent,
-    ManageCustomerComponent
+    ManageCustomerComponent,
+    ManageItemComponent
   ],
   imports: [
     BrowserModule,
