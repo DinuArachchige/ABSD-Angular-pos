@@ -16,7 +16,7 @@ export class ManageCustomerComponent implements OnInit {
   manuallySelected = true;
   inputDisabled = true;
   count = 0;
-  @ViewChild('frmCustomers') frmCustomers: NgForm;
+  @ViewChild('frmCustomer') frmCustomer: NgForm;
 
   constructor(private customerService: CustomerService) { }
 
@@ -24,11 +24,12 @@ export class ManageCustomerComponent implements OnInit {
     this.loadAllCustomers();
   }
 
-  saveCustomer() {
+  saveCustomer(): void {
     this.customerService.saveCustomer(this.selectedCustomer).subscribe(
       (result) => {
       if (result) {
         alert('Customer has been saved successfully');
+        // this.customers.push(this.selectedCustomer);
         this.loadAllCustomers();
         this.clear();
         this.manuallySelected = true;
@@ -39,7 +40,14 @@ export class ManageCustomerComponent implements OnInit {
   }
 
 
-  clear()  {
+   loadAllCustomers(): void {
+    this.customerService.getAllCustomers().subscribe(
+      (result) => {
+      this.customers = result;
+    });
+  }
+
+   clear() {
     const index = this.customers.indexOf(this.selectedCustomer);
     if (index !== -1) {
       this.customers[index] = this.tempCustomer;
@@ -49,28 +57,39 @@ export class ManageCustomerComponent implements OnInit {
     this.manuallySelected = false;
   }
 
+  update(id): void {
+    this.customerService.saveCustomer(this.selectedCustomer).subscribe(
 
-   loadAllCustomers() {
-    this.customerService.getAllCustomers().subscribe((result) => {
-      this.customers = result;
-    });
-  }
-
-
-  update(id) {
-    this.customerService.saveCustomer(this.selectedCustomer).subscribe((result) => {
-      if (result) {
-        alert('Customer has been Updated successfully');
-        this.loadAllCustomers();
-        this.clear();
-        this.manuallySelected = true;
-      } else {
-        alert('Failed to update the customer ');
+      (result) => {
+        if (result) {
+          alert('Customer has been Updated successfully');
+          this.loadAllCustomers();
+          this.clear();
+          this.manuallySelected = true;
+        } else {
+          alert('Failed to update the customer');
+        }
       }
-    });
+    );
   }
 
-  deleteCustomer(id) {
+  searchCustomer(): void {
+    this.customerService.searchCustomer(this.selectedCustomer.id).subscribe(
+      (result) => {
+        this.selectedCustomer = result;
+        // console.log(this.selectedCustomer);
+        if (!result) {
+
+          alert('Customer Not Found !');
+          // this.clear(x);
+          //  this.selectedCustomer = null;
+
+        }
+      }
+    );
+  }
+
+  deleteCustomer(id): void {
     if (confirm('Are you sure you want to delete this customer?')) {
       this.customerService.deleteCustomer(id).subscribe(
         (result) => {
@@ -86,36 +105,34 @@ export class ManageCustomerComponent implements OnInit {
     }
   }
 
-  searchCustomer() {
-    this.customerService.searchCustomer(this.selectedCustomer.id).subscribe((result) => {
-      this.selectedCustomer = result;
-      if (!result) {
-          alert('Customer Not Found !');
-        }
-      });
-  }
+  tableClick(customer: Customer): void {
+    this.customerService.searchCustomer(customer.id).subscribe(
+      (result) => {
+        this.selectedCustomer = result;
+        //    console.log(this.selectedCustomer);
 
-  tableClick(customer: Customer) {
-    this.customerService.searchCustomer(customer.id).subscribe((result) => {
-      this.selectedCustomer = result;
       });
+
   }
 
   check() {
     this.count++;
     if (this.count === 1) {
-         this.manuallySelected = false;
-      }
+      this.manuallySelected = false;
+
+    }
     if (this.count > 1) {
-        this.manuallySelected = true;
+      this.manuallySelected = true;
 
-        this.count = 0;
-      }
+      this.count = 0;
+    }
+
   }
-
-  selectCustomer(customer: Customer) {
+  selectCustomer(customer: Customer): void {
     this.clear();
     this.selectedCustomer = customer;
+    this.tempCustomer = Object.assign({}, customer);
+    this.manuallySelected = true;
 
   }
 
