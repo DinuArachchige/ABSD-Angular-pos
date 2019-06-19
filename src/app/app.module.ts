@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+// import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 
@@ -12,6 +14,8 @@ import { ManageCustomerComponent } from './component/manage-customer/manage-cust
 import {HttpClientModule} from '@angular/common/http';
 import {CustomerService} from './services/customer.service';
 import { ManageItemComponent } from './component/manage-item/manage-item.component';
+import { PlaceOrderComponent } from './component/place-order/place-order.component';
+import {ItemService} from './services/item.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import { ManageItemComponent } from './component/manage-item/manage-item.compone
     NavbarComponent,
     DashboadComponent,
     ManageCustomerComponent,
-    ManageItemComponent
+    ManageItemComponent,
+    PlaceOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,8 @@ import { ManageItemComponent } from './component/manage-item/manage-item.compone
     HttpClientModule
   ],
   providers: [
-    CustomerService
+    CustomerService,
+    ItemService
   ],
   bootstrap: [AppComponent]
 })

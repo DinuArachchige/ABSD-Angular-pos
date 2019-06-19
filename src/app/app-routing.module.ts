@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboadComponent } from './component/dashboad/dashboad.component';
 import { ManageCustomerComponent } from './component/manage-customer/manage-customer.component';
 import {ManageItemComponent} from './component/manage-item/manage-item.component';
+import {PlaceOrderComponent} from './component/place-order/place-order.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'manage-item',
     component: ManageItemComponent
+  },
+  {
+    path: 'place-order',
+    component: PlaceOrderComponent
   },
   {
     path: '',
