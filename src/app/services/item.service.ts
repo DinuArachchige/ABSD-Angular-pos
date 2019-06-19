@@ -1,23 +1,34 @@
 import { Injectable } from '@angular/core';
 import {Item} from '../dtos/item';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAllItems() {
+
+  saveItem(items: Item): Observable<boolean> {
+    return this.http.post<boolean>('', items);
   }
 
-  saveItem(selectedItems: Item) {
+  getAllItems(): Observable<Array<Item>> {
+    return this.http.get<Array<Item>>('');
+  }
+
+  deleteItem(code: string): Observable<boolean> {
+    return this.http.delete<boolean>( '' + '/' + code);
 
   }
 
-  deleteItem(code: any) {
+  searchItem(code: string): Observable<Item> {
+    return this.http.get<Item>( '' + '/' + code);
   }
 
-  searchItem(code: string) {
+  getTotalItems(): Observable<number> {
+    return this.http.get<number>(''  + '/count');
   }
 }
