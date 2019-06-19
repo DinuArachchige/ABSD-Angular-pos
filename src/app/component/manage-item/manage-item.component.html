@@ -5,7 +5,7 @@
         <div class="ItemForm">
           <h2 class="item-form" style="font-size:20px;">Item Form</h2>
           <div class="Forms">
-            <form>
+            <form #frmItem="ngForm">
               <div class="form-group">
                 <input [disabled]="manuallySelected" name="txtCode" [(ngModel)]="selectedItems.code" id="txtCode" class="form-control" placeholder="Item Code">
               </div>
@@ -24,6 +24,53 @@
               &nbsp;
               <button (click)="update(selectedItems.code)" type="button">Update</button>
 
+              <br>
+              <br>
+              <br>
+              <br>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <table id="tblItems" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th>Item Code</th>
+                      <th>Item Description</th>
+                      <th>Unit Price</th>
+                      <th>Qty</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of items" (click)="tableClick(item)" >
+                      <td>{{item.code}}</td>
+                      <td>{{item.description}}</td>
+                      <td>{{item.unitPrice}}</td>
+                      <td>{{item.qtyOnHand}}</td>
+                      <td></td>
+                      <td>
+                        <i (click)="deleteItem(item.code)" class="fa fa-trash fa-2x"></i>
+                      </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <!--<tr>
+                      <td colspan="4">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                      </td>
+                    </tr>-->
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+
+              <br>
+              <br>
+              <br>
+              <br>
+
+
+
             </form>
           </div>
         </div>
@@ -31,39 +78,4 @@
     </div>
   </div>
 </section>
-
-<div class="row">
-  <div class="col-md-12">
-    <table id="tblItems" class="table table-bordered table-hover">
-      <thead>
-      <tr>
-        <th>Item Code</th>
-        <th>Item Description</th>
-        <th>Unit Price</th>
-        <th>Qty</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let item of items" (click)="tableClick(item)" >
-        <td>{{item.code}}</td>
-        <td>{{item.description}}</td>
-        <td>{{item.unitPrice}}</td>
-        <td>{{item.qtyOnHand}}</td>
-        <td></td>
-        <td>
-          <i (click)="deleteItem(item.code)" class="fa fa-trash fa-2x"></i>
-        </td>
-      </tr>
-      </tbody>
-      <tfoot>
-      <!--<tr>
-        <td colspan="4">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </td>
-      </tr>-->
-      </tfoot>
-    </table>
-  </div>
-</div>
 
