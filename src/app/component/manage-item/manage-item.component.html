@@ -7,18 +7,18 @@
           <div class="Forms">
             <form #frmItem="ngForm">
               <div class="form-group">
-                <input [disabled]="manuallySelected" name="txtCode" [(ngModel)]="selectedItems.code" id="txtCode" class="form-control" placeholder="Item Code">
+                <input [disabled]="manuallySelected" name="Code" [(ngModel)]="selectedItems.code" id="Code" class="form-control" placeholder="Item Code">
               </div>
               <div class="form-group">
-                <input name="txtDescription" [(ngModel)]="selectedItems.description" id="txtDescription" class="form-control" placeholder="Item Description" >
+                <input name="description" [(ngModel)]="selectedItems.description" id="description" class="form-control" placeholder="Item Description" >
               </div>
               <div class="form-group">
-                <input name="txtunitPrice"  id="txtunitPrice" [(ngModel)]="selectedItems.unitPrice" class="form-control" placeholder="Unit Price" type="number" >
+                <input name="unitPrice"  id="unitPrice" [(ngModel)]="selectedItems.unitPrice" class="form-control" placeholder="Unit Price" type="number" >
               </div>
               <div class="form-group">
-                <input name="txtQtyOnHand"  id="txtQtyOnHand" [(ngModel)]="selectedItems.qtyOnHand" class="form-control" placeholder="Qty" type="number" >
+                <input name="qty"  id="qty" [(ngModel)]="selectedItems.qty" class="form-control" placeholder="Qty" type="number" >
               </div>
-              <button type="submit" (click)="saveItem()">Save</button>
+              <button type="submit" (click)="saveItems()">Save</button>
               &nbsp;
               <button (click)="clear()" type="button">Clear</button>
               &nbsp;
@@ -46,10 +46,10 @@
                       <td>{{item.code}}</td>
                       <td>{{item.description}}</td>
                       <td>{{item.unitPrice}}</td>
-                      <td>{{item.qtyOnHand}}</td>
+                      <td>{{item.qty}}</td>
                       <td></td>
                       <td>
-                        <i (click)="deleteItem(item.code)" class="fa fa-trash fa-2x"></i>
+                        <i (click)="deleteItems(item.code)" class="fa fa-trash fa-2x"></i>
                       </td>
                     </tr>
                     </tbody>
