@@ -4,9 +4,14 @@ import { DashboadComponent } from './component/dashboad/dashboad.component';
 import { ManageCustomerComponent } from './component/manage-customer/manage-customer.component';
 import {ManageItemComponent} from './component/manage-item/manage-item.component';
 import {PlaceOrderComponent} from './component/place-order/place-order.component';
+import {LoginComponent} from './component/login/login.component';
 
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'dashboad',
     component: DashboadComponent

@@ -12,23 +12,23 @@ export class ItemService {
 
 
   saveItem(items: Item): Observable<boolean> {
-    return this.http.post<boolean>('', items);
+    return this.http.post<boolean>('http://localhost:8080/pos/item', items);
   }
 
   getAllItems(): Observable<Array<Item>> {
-    return this.http.get<Array<Item>>('');
+    return this.http.get<Array<Item>>('http://localhost:8080/pos/item');
   }
 
   deleteItem(code: string): Observable<boolean> {
-    return this.http.delete<boolean>( '' + '/' + code);
+    return this.http.delete<boolean>( 'http://localhost:8080/pos/item' + '/' + code);
 
   }
 
   searchItem(code: string): Observable<Item> {
-    return this.http.get<Item>( '' + '/' + code);
+    return this.http.get<Item>( 'http://localhost:8080/pos/item' + '/' + code);
   }
 
   getTotalItems(): Observable<number> {
-    return this.http.get<number>(''  + '/count');
+    return this.http.get<number>('http://localhost:8080/pos/item'  + '/count');
   }
 }

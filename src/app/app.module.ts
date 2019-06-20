@@ -16,6 +16,7 @@ import {CustomerService} from './services/customer.service';
 import { ManageItemComponent } from './component/manage-item/manage-item.component';
 import { PlaceOrderComponent } from './component/place-order/place-order.component';
 import {ItemService} from './services/item.service';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ItemService} from './services/item.service';
     DashboadComponent,
     ManageCustomerComponent,
     ManageItemComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

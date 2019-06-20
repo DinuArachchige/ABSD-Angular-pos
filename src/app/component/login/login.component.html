@@ -1,0 +1,29 @@
+<section style="text-align: center;">
+    <div class="project-request" >
+      <div class="container" >
+        <div class=" col-md-5 col-sm-5 ">
+          <div class="LoginForm">
+            <h2 class="login-form" style="font-size: 20px">Login Form</h2>
+            <div class="Forms">
+              <form #frmLogin="ngForm">
+                <div class="form-group">
+                  <input name="username" [(ngModel)]="username" id="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                  <input name="password" [(ngModel)]="password" id="password" class="form-control" placeholder="Password" required >
+                </div>
+
+                <button type="button" (click)="login()" >Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+
