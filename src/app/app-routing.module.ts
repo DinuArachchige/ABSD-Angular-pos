@@ -31,8 +31,9 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'dashboad'
+    redirectTo: 'login'
   }
+
 
 ];
 

@@ -25,26 +25,14 @@ export class CustomerService {
   }
 
   searchCustomer(id: string): Observable<Customer> {
-    return this.http.get<Customer>(this.baseUrl + '/' + id);
+    return this.http.get<Customer>('http://localhost:8080/pos/customer?id' + '=' + id);
 
   }
 
   deleteCustomer(id: string): Observable<boolean> {
-    return this.http.delete<boolean>('' + '/' + id);
+    return this.http.delete<boolean>('http://localhost:8080/pos/customer?id' + '=' + id);
   }
-  // searchCustomer(id: string) {
-  //
-  // }
-  //
-  // deleteCustomer(id: any) {
-  //
-  // }
 
-  // saveCustomer(selectedCustomer: Customer) {
-  //
-  // }
-  //
-  // getAllCustomers() {
-  //
+  // updateCustomer(customer: Customer) {
   // }
 }
