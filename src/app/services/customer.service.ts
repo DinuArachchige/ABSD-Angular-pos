@@ -33,6 +33,7 @@ export class CustomerService {
     return this.http.delete<boolean>('http://localhost:8080/pos/customer?id' + '=' + id);
   }
 
-  // updateCustomer(customer: Customer) {
-  // }
+  updateCustomer(customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(this.baseUrl, customer);
+  }
 }

@@ -58,21 +58,20 @@ export class ManageCustomerComponent implements OnInit {
     this.manuallySelected = false;
   }
 
-  // update(id): void {
-  //   this.customerService.updateCustomer(this.selectedCustomer).subscribe(
-  //
-  //     (result) => {
-  //       if (result) {
-  //         alert('Customer has been Updated successfully');
-  //         this.loadAllCustomers();
-  //         this.clear();
-  //         this.manuallySelected = true;
-  //       } else {
-  //         alert('Failed to update the customer');
-  //       }
-  //     }
-  //   );
-  // }
+  update(customer: Customer): void {
+    this.customerService.updateCustomer(this.selectedCustomer).subscribe(
+      (result) => {
+        if (result) {
+          alert('Customer has been Updated successfully');
+          this.loadAllCustomers();
+          this.clear();
+          this.manuallySelected = true;
+        } else {
+          alert('Failed to update the customer');
+        }
+      }
+    );
+  }
 
   searchCustomer(id: string): void {
     this.customerService.searchCustomer(id).subscribe(

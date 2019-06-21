@@ -1,7 +1,109 @@
-<p>dashboad</p>
-<div class="dash">
-    <li><a routerLink="/manage-customer" routerLinkActive="active" href="#">Customer</a></li>
-    <li><a routerLink="/manage-item" routerLinkActive="active" href="#">Item</a></li>
-    <li><a routerLink="/place-order" routerLinkActive="active" href="#">Order</a></li>
-    <li><a routerLink="/login" routerLinkActive="active" href="#">Logout</a></li>
+
+<!--<p>dashboad</p>-->
+<!--<div class="dash">-->
+    <!--<li><a routerLink="/manage-customer" routerLinkActive="active" href="#">Customer</a></li>-->
+    <!--<li><a routerLink="/manage-item" routerLinkActive="active" href="#">Item</a></li>-->
+    <!--<li><a routerLink="/place-order" routerLinkActive="active" href="#">Order</a></li>-->
+    <!--<li><a routerLink="/login" routerLinkActive="active" href="#">Logout</a></li>-->
+<!--</div>-->
+
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h4 class="m-0 text-dark">Dashboard</h4>
+      </div><!-- /.col -->
+    </div>
+</div>
+
+<section  class="content">
+  <div  class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div  class="row">
+      <div class="col-lg-4 col-12">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>{{totalCustomers}}</h3>
+
+            <p>Customers</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-users"></i>
+          </div>
+          <a routerLink="/manage-customer" routerLinkActive="active" href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-4 col-12">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3>{{totalItems}}</h3>
+
+            <p>Items</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-sitemap"></i>
+          </div>
+          <a routerLink="/manage-item" routerLinkActive="active" href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-4 col-12">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+          <div class="inner">
+            <h3>{{totalOrders}}</h3>
+
+            <p>Orders</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-shopping-cart"></i>
+          </div>
+          <a routerLink="/place-order" routerLinkActive="active" href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <br>
+    <div class="col-md-12 col-12">
+      <table id="tblOrders" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Order Date</th>
+          <th>TOtal Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+          <td>O001</td>
+          <td>21/06/2019</td>
+          <td>2000.00</td>
+        </tr>
+        <tr >
+          <td>O001</td>
+          <td>21/06/2019</td>
+          <td>2000.00</td>
+        </tr>
+        <tr >
+          <td>O001</td>
+          <td>21/06/2019</td>
+          <td>2000.00</td>
+        </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</section>
 </div>
