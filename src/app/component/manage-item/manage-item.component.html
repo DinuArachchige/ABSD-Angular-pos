@@ -7,7 +7,7 @@
           <div class="Forms">
             <form #frmItem="ngForm">
               <div class="form-group">
-                <input [disabled]="manuallySelected" name="Code" [(ngModel)]="selectedItems.code" id="Code" class="form-control" placeholder="Item Code">
+                <input  name="Code" [(ngModel)]="selectedItems.code" id="Code" class="form-control" placeholder="Item Code">
               </div>
               <div class="form-group">
                 <input name="description" [(ngModel)]="selectedItems.description" id="description" class="form-control" placeholder="Item Description" >
@@ -18,11 +18,16 @@
               <div class="form-group">
                 <input name="qty"  id="qty" [(ngModel)]="selectedItems.qty" class="form-control" placeholder="Qty" type="number" >
               </div>
-              <button type="submit" (click)="saveItems()">Save</button>
+              <button type="submit" (click)="saveItem()">Save</button>
               &nbsp;
               <button (click)="clear()" type="button">Clear</button>
               &nbsp;
               <button (click)="update(selectedItems.code)" type="button">Update</button>
+              &nbsp;
+              <button (click)="searchItem(selectedItems.code)" type="submit">Search</button>
+              &nbsp;
+              <button (click)="deleteItem(selectedItems.code)" type="submit">Delete</button>
+
 
               <br>
               <br>
@@ -49,7 +54,7 @@
                       <td>{{item.qty}}</td>
                       <td></td>
                       <td>
-                        <i (click)="deleteItems(item.code)" class="fa fa-trash fa-2x"></i>
+                        <i (click)="updateSubmit(item.code)" class="fa fa-refresh fa-2x"></i>
                       </td>
                     </tr>
                     </tbody>

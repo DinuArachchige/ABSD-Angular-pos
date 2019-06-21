@@ -3,6 +3,7 @@ import {Item} from '../../dtos/item';
 import {NgForm} from '@angular/forms';
 import {ItemService} from '../../services/item.service';
 
+
 @Component({
   selector: 'app-manage-item',
   templateUrl: './manage-item.component.html',
@@ -13,7 +14,9 @@ export class ManageItemComponent implements OnInit {
   items: Array<Item> = [];
   selectedItems: Item = new Item('', '', '', '');
   tempItems: Item = null;
-  manuallySelected = false;
+  manuallySelected = true;
+   inputDisabled = true;
+  count = 0;
   @ViewChild('frmItem') frmItem: NgForm;
 
   constructor(private itemService: ItemService) { }
@@ -23,65 +26,74 @@ export class ManageItemComponent implements OnInit {
   }
 
 
-  saveItems(): void {
-    this.itemService.saveItem(this.selectedItems)
-      .subscribe((result) => {
-      if (result) {
-        alert('Item has been saved successfully');
-        this.items.push(this.selectedItems);
-        this.loadAllItems();
-      } else {
-        alert('Failed to save the item');
-      }
-    });
+  saveItem(): void {
+    this.itemService.saveItem(this.selectedItems).subscribe(
+      (result) => {
+        if (result) {
+          alert('Item has been saved successfully');
+          // this.customers.push(this.selectedCustomer);
+          this.loadAllItems();
+          this.clear();
+          this.manuallySelected = true;
+        } else {
+          alert('Failed to save the item');
+        }
+      });
+
   }
 
-   loadAllItems(): void {
+
+  loadAllItems(): void {
      this.itemService.getAllItems().subscribe(
        (result) => {
          this.items = result;
-         console.log(this.items);
+         // console.log(this.items);
        }
      );
   }
 
-  deleteItems(code): void {
-    if (confirm('Are you sure you want to delete this Item?')) {
-
+  deleteItem(code): void {
+    if (confirm('Are you sure you want to delete this item?')) {
       this.itemService.deleteItem(code).subscribe(
         (result) => {
-          if (result) {
-            alert('Items has been Deleted successfully');
-          } else {
-            alert('Failed to deleted Items');
-          }
+          alert('Item has been deleted successfullyr');
           this.loadAllItems();
         }
       );
     }
   }
 
-  update(id): void {
-    this.itemService.saveItem(this.selectedItems).subscribe(
-      value => {
-        if (value) {
-          alert('Items has been Update successfully');
-          this.loadAllItems();
-        } else {
-          alert('Failed to update the Items');
+  searchItem(code: string): void {
+    this.itemService.searchItem(code).subscribe(
+      (result) => {
+        console.log(result);
+        this.frmItem.form.get('description').setValue(result.description);
+        this.frmItem.form.get('unitPrice').setValue(result.unitPrice);
+        this.frmItem.form.get('qty').setValue(result.qty);
+        // this.selectedCustomer = result;
+        // console.log(this.selectedCustomer);
+        if (!result) {
+
+          alert('Customer Not Found !');
+          // this.clear(x);
+          //  this.selectedCustomer = null;
+
         }
       }
     );
+
+  }
+
+  update(id): void {
+
   }
 
   selectItems(item: Item): void {
-    this.itemService.searchItem(item.code).subscribe(
-      value => {
-        if (value) {
-          this.selectedItems = value;
-        }
-      }
-    );
+    this.clear();
+    this.selectedItems = item;
+    this.tempItems = Object.assign({}, item);
+    this.manuallySelected = true;
+
   }
 
   clear(): void {
@@ -93,6 +105,19 @@ export class ManageItemComponent implements OnInit {
     }
     this.selectedItems = new Item('', '', '', '');
     this.manuallySelected = false;
+  }
+
+  tableClick(item: Item): void {
+    this.itemService.searchItem(item.code).subscribe(
+      (result) => {
+        this.selectedItems = result;
+        //    console.log(this.selectedCustomer);
+
+      });
+  }
+
+  updateSubmit() {
+
   }
 
 }
