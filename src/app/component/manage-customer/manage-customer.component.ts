@@ -3,6 +3,7 @@ import {Customer} from '../../dtos/customer';
 import {NgForm} from '@angular/forms';
 import {CustomerService} from '../../services/customer.service';
 
+
 @Component({
   selector: 'app-manage-customer',
   templateUrl: './manage-customer.component.html',
@@ -57,26 +58,29 @@ export class ManageCustomerComponent implements OnInit {
     this.manuallySelected = false;
   }
 
-  update(id): void {
-    this.customerService.saveCustomer(this.selectedCustomer).subscribe(
+  // update(id): void {
+  //   this.customerService.updateCustomer(this.selectedCustomer).subscribe(
+  //
+  //     (result) => {
+  //       if (result) {
+  //         alert('Customer has been Updated successfully');
+  //         this.loadAllCustomers();
+  //         this.clear();
+  //         this.manuallySelected = true;
+  //       } else {
+  //         alert('Failed to update the customer');
+  //       }
+  //     }
+  //   );
+  // }
 
+  searchCustomer(id: string): void {
+    this.customerService.searchCustomer(id).subscribe(
       (result) => {
-        if (result) {
-          alert('Customer has been Updated successfully');
-          this.loadAllCustomers();
-          this.clear();
-          this.manuallySelected = true;
-        } else {
-          alert('Failed to update the customer');
-        }
-      }
-    );
-  }
-
-  searchCustomer(): void {
-    this.customerService.searchCustomer(this.selectedCustomer.id).subscribe(
-      (result) => {
-        this.selectedCustomer = result;
+        console.log(result);
+        this.frmCustomer.form.get('name').setValue(result.name);
+        this.frmCustomer.form.get('address').setValue(result.address);
+        // this.selectedCustomer = result;
         // console.log(this.selectedCustomer);
         if (!result) {
 
@@ -94,10 +98,10 @@ export class ManageCustomerComponent implements OnInit {
       this.customerService.deleteCustomer(id).subscribe(
         (result) => {
           if (result) {
-            alert('Customer has been deleted successfully');
-            this.loadAllCustomers();
+            alert('Failed deleted');
+
           } else {
-            alert('Failed to delete the customer');
+            alert('Customer has been deleted successfullyr');
           }
           this.loadAllCustomers();
         }
@@ -135,5 +139,9 @@ export class ManageCustomerComponent implements OnInit {
     this.manuallySelected = true;
 
   }
+
+  // updateSubmit() {
+  //
+  // }
 
 }

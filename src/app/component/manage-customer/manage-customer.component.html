@@ -21,7 +21,9 @@
                 &nbsp;
                 <button (click)="update(selectedCustomer.id)" type="button">Update</button>
                 &nbsp;
-                <button (click)="searchCustomer()" type="submit">Search</button>
+                <button (click)="searchCustomer(selectedCustomer.id)" type="submit">Search</button>
+                &nbsp;
+                <button (click)="deleteCustomer(selectedCustomer.id)" type="submit">Delete</button>
 
                 <br>
                 <br>
@@ -44,8 +46,11 @@
                         <td>{{customer.id}}</td>
                         <td>{{customer.name}}</td>
                         <td>{{customer.address}}</td>
+                        <!--<td>-->
+                          <!--<i (click)="deleteCustomer(customer.id)" class="fa fa-trash fa-2x"></i>-->
+                        <!--</td>-->
                         <td>
-                          <i (click)="deleteCustomer(customer.id)" class="fa fa-trash fa-2x"></i>
+                          <i (click)="updateSubmit(customer)" class="fa fa-refresh "></i>
                         </td>
                       </tr>
                       </tbody>
